@@ -1,2 +1,3 @@
-my-blog
-=======
+# Blog
+
+## My Blog Post

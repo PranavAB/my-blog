@@ -18,7 +18,7 @@ Blog::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  
 #Blog::Application.routes.draw do
  # get "welcome/indexs"
   #root 'welcome#index'

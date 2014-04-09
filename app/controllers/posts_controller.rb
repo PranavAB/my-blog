@@ -1,18 +1,20 @@
 class PostsController < ApplicationController
   
   #before_filter :authenicate_user!, only: [:new, :create, :destroy]
-    
+  # load_and_authorize_resource
       
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
   
   def edit
     @post = Post.find(params[:id])
+    authorize! :update, @post
   end
   
   def destroy
     @post = Post.find(params[:id])
+    authorize! :destroy, @post
     @post.destroy
  
     redirect_to posts_path
@@ -20,8 +22,9 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
+    authorize! :update, @post
     
-    if @post.update(params[:post].permit(:title, :text))
+    if @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
@@ -29,8 +32,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(params[:post].permit(:title, :text))
-    #@post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    authorize! :create, @post
  
     if @post.save
       redirect_to @post
@@ -44,10 +47,11 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all
+    @posts = Post.all.page params[:page]
   end
   
   private
+   
     def post_params
       params.require(:post).permit(:title, :text)
     end
