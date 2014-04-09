@@ -8,12 +8,12 @@ class PostsController < ApplicationController
   end
   
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     authorize! :update, @post
   end
   
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     authorize! :destroy, @post
     @post.destroy
  
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
   
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     authorize! :update, @post
     
     if @post.update(post_params)
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
   
   def index
