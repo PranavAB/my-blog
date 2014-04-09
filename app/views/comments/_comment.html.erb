@@ -1,0 +1,17 @@
+<p>
+  <h4> <%= comment.commenter %> </h4>
+</p>
+ 
+<p><blockquote>
+  <%= comment.body %> 
+  </blockquote></p>
+  
+  <% if user_signed_in? %>
+  
+  <p>
+    <%= link_to 'Delete', [comment.post, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  </p>
+  <% end %>
+  
