@@ -1,15 +1,19 @@
-<p>
-  <h2><%= @post.title %></h2>
-</p>
+
+ <div class="jumbotron", style="word-break:break-all">
  
-<p>
-  <%= @post.text %>
-</p>
+       <h2><%= @post.title %></h2>
+       <%= simple_format @post.text %>
+       <p> <%= simple_format @post.user.name %></p>
+       
+       </div>
+
  
 <h4>Comments</h4>
+</br>
+</br>
 <%= render @post.comments %>
  
-<h2>Add a comment:</h2>
+<h5>Add a comment:</h5><h6>
 <%= render "comments/form" %>
  
 <%= link_to 'Edit Post', edit_post_path(@post) %> |

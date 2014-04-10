@@ -9,7 +9,8 @@
   	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   	<%= csrf_meta_tags %>
 </head>
-<body>
+<body background-color:"black">
+  
   <nav class="navbar navbar-default nav-pills navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,7 +60,10 @@
   </nav>
   
 
-  
+</br>
+</br>
+</br>
+
   
 <div class='container'>
 
@@ -69,13 +73,18 @@
 
   
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+  
+    <p class="alert alert-success alert-dismissable"><%= notice %></p>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <p class="alert alert-danger alert-dismissable"><%= alert %></p>
   <% end %>
   
 	<%= yield %>
+  
+  </br>
+  </br>
+  </br>
 </div>
 </body>
 </html>
