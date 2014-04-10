@@ -19,7 +19,7 @@
   
     <tr>
       <td><%= post.title %></td>
-      <td><%= simple_format post.text %></td>
+      <td><%= simple_format post.text, html: {style: "word-break:break-all"}%></td>
       <td><%= simple_format post.user.name %></td>
       <td><%= link_to 'Show', post %>
 
