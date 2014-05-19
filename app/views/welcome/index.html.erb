@@ -1,5 +1,7 @@
+<div class="well well-lg", style="word-break:break-all">
 <%- if current_user %>
 <h1><%= "Hello #{current_user.name}, Welcome to the homepage" %></h1>
 <% end %>
 
 <%= link_to "My Blog", controller: "posts" %>
+</div>
